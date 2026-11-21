@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f2ff" />
+  <title>CV Studio — Build your next chapter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">✳</span><span>cv<span class="brand-accent">studio</span></span></a>
+      <div class="topbar-center"><span class="status-dot"></span> Your CV is saved automatically</div>
+      <div class="top-actions">
+        <button class="btn btn-ghost" id="importBtn">↥ Import</button>
+        <button class="btn btn-ghost" id="exportBtn">↧ Export JSON</button>
+        <button class="btn btn-dark" id="printBtn">Print CV <span>↗</span></button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden>
+      </div>
+    </header>
+
+    <main class="main-wrap">
+      <section class="hero">
+        <div>
+          <div class="eyebrow"><span>✦</span> YOUR CAREER, BEAUTIFULLY PRESENTED</div>
+          <h1>Make your next move<br><span>look like you.</span></h1>
+          <p class="hero-copy">A little bit of you. A lot of opportunity. Build a CV that gets noticed.</p>
+        </div>
+        <div class="hero-sticker"><span class="sticker-spark">✳</span><strong>Good things<br>start here.</strong><small>Made for ambitious students</small></div>
+      </section>
+
+      <section class="progress-card">
+        <div class="progress-top">
+          <div><span class="section-kicker">YOUR CV CHECKLIST</span><h2>You're making progress <span>✦</span></h2></div>
+          <div class="progress-number"><strong id="completionValue">0%</strong><span>complete</span></div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-foot"><span id="progressMessage">Let's get the basics in place.</span><span id="progressCount">0 of 5 essentials</span></div>
+      </section>
+
+      <div class="workspace">
+        <section class="editor-column">
+          <div class="column-heading">
+            <div><span class="section-kicker">THE EDITOR</span><h2>Let's build your story <span>✍️</span></h2></div>
+            <span class="live-pill"><i></i> LIVE</span>
+          </div>
+          <div class="editor-tabs" role="tablist">
+            <button class="editor-tab active" data-tab="details">Your details</button>
+            <button class="editor-tab" data-tab="experience">Experience</button>
+            <button class="editor-tab" data-tab="extras">The extras</button>
+          </div>
+
+          <div class="tab-panel active" id="tab-details">
+            <section class="form-card">
+              <div class="card-title"><div class="icon-bubble lilac">✦</div><div><h3>The basics</h3><p>Let's put a name to the talent.</p></div></div>
+              <div class="photo-row">
+                <div class="photo-preview" id="photoPreview"><span>＋</span></div>
+                <div class="photo-copy"><strong>Add a profile photo <small>OPTIONAL</small></strong><p>A friendly, professional headshot works best.</p><div class="photo-actions"><label class="text-button" for="photoInput">Upload photo</label><button class="text-button muted" id="removePhotoBtn" type="button">Remove</button><input id="photoInput" type="file" accept="image/*" hidden></div></div>
+                <div class="shape-switch"><span>Shape</span><button class="shape-btn active" data-shape="circle">●</button><button class="shape-btn" data-shape="square">▣</button></div>
+              </div>
+              <div class="field-grid">
+                <label class="field full"><span>Full name <b>*</b></span><input id="fullName" placeholder="e.g. Shivali Naik" autocomplete="name"><small class="error" data-error="fullName"></small></label>
+                <label class="field"><span>Professional title</span><input id="jobTitle" placeholder="e.g. BCA Student · Aspiring Developer"></label>
+                <label class="field"><span>Location</span><input id="location" placeholder="e.g. Goa, India"></label>
+                <label class="field"><span>Email address <b>*</b></span><input id="email" type="email" placeholder="you@example.com"><small class="error" data-error="email"></small></label>
+                <label class="field"><span>Phone number <b>*</b></span><input id="phone" inputmode="numeric" placeholder="10-digit mobile number"><small class="error" data-error="phone"></small></label>
+                <label class="field full"><span>LinkedIn / Portfolio</span><input id="website" placeholder="https://linkedin.com/in/yourname"></label>
+              </div>
+            </section>
+
+            <section class="form-card">
+              <div class="card-title"><div class="icon-bubble peach">✎</div><div><h3>Your introduction</h3><p>A short snapshot of what makes you, you.</p></div></div>
+              <label class="field"><span>Professional summary</span><textarea id="summary" rows="4" placeholder="Curious BCA student with a passion for building useful, user-friendly digital experiences..."></textarea><small class="hint">Aim for 2–4 sentences. Keep it clear and specific.</small></label>
+            </section>
+
+            <section class="form-card">
+              <div class="card-title"><div class="icon-bubble mint">⌂</div><div><h3>Education</h3><p>Show where your learning journey is taking you.</p></div></div>
+              <div id="educationList" class="repeat-list"></div>
+              <button class="add-button" data-add="education">＋ Add education</button>
+            </section>
+          </div>
+
+          <div class="tab-panel" id="tab-experience">
+            <section class="form-card">
+              <div class="card-title"><div class="icon-bubble yellow">✧</div><div><h3>Skills that shine</h3><p>Choose your strengths and show your confidence level.</p></div></div>
+              <div id="skillsList" class="repeat-list"></div>
+              <button class="add-button" data-add="skills">＋ Add a skill</button>
+              <small class="error" data-error="skills"></small>
+            </section>
+            <section class="form-card">
+              <div class="card-title"><div class="icon-bubble lilac">⌘</div><div><h3>Projects</h3><p>Proof that you can turn ideas into action.</p></div></div>
+              <div id="projectsList" class="repeat-list"></div>
+              <button class="add-button" data-add="projects">＋ Add a project</button>
+              <small class="error" data-error="projects"></small>
+            </section>
+            <section class="form-card">
+              <div class="card-title"><div class="icon-bubble peach">↗</div><div><h3>Internships & experience</h3><p>Every real-world experience counts.</p></div></div>
+              <div id="internshipsList" class="repeat-list"></div>
+              <button class="add-button" data-add="internships">＋ Add experience</button>
+            </section>
+          </div>
+
+          <div class="tab-panel" id="tab-extras">
+            <section class="form-card">
+              <div class="card-title"><div class="icon-bubble mint">✺</div><div><h3>Certifications</h3><p>Courses, workshops and milestones worth mentioning.</p></div></div>
+              <div id="certificationsList" class="repeat-list"></div>
+              <button class="add-button" data-add="certifications">＋ Add certification</button>
+            </section>
+            <section class="form-card">
+              <div class="card-title"><div class="icon-bubble yellow">文</div><div><h3>Languages</h3><p>Tell people how you communicate.</p></div></div>
+              <div id="languagesList" class="repeat-list"></div>
+              <button class="add-button" data-add="languages">＋ Add language</button>
+            </section>
+            <section class="form-card manager-card">
+              <div class="card-title"><div class="icon-bubble lilac">☷</div><div><h3>Arrange your CV</h3><p>Drag to reorder. Toggle a section on or off.</p></div></div>
+              <div class="manager-list" id="sectionManager"></div>
+              <p class="hint">Your preview follows this order. Hidden sections stay saved in your editor.</p>
+            </section>
+          </div>
+        </section>
+
+        <aside class="preview-column">
+          <div class="preview-heading"><div><span class="section-kicker">THE LIVE PREVIEW</span><h2>Looking good already <span>👀</span></h2></div><span class="preview-live">● LIVE PREVIEW</span></div>
+          <div class="theme-picker">
+            <span>Pick your vibe</span>
+            <div class="theme-options">
+              <button class="theme-option active" data-theme="modern"><span class="theme-swatch modern-swatch"></span>Modern</button>
+              <button class="theme-option" data-theme="classic"><span class="theme-swatch classic-swatch"></span>Classic</button>
+              <button class="theme-option" data-theme="minimal"><span class="theme-swatch minimal-swatch"></span>Minimal</button>
+            </div>
+          </div>
+          <div class="paper-wrap">
+            <article class="cv-paper theme-modern" id="cvPreview">
+              <div class="cv-header" id="cvHeader">
+                <div class="cv-identity"><div class="cv-name" id="pName"></div><div class="cv-title" id="pTitle"></div><div class="cv-contact" id="pContact"></div></div>
+                <img class="cv-photo" id="pPhoto" alt="Profile photo" hidden>
+              </div>
+              <div id="previewSections"></div>
+            </article>
+          </div>
+          <div class="preview-footer"><span>✦ Changes appear here instantly</span><button class="btn btn-dark btn-small" id="previewPrintBtn">Print / Save PDF ↗</button></div>
+          <div class="tip-card"><span>💡</span><p><strong>Pro tip</strong> Keep your CV focused and relevant. For most student applications, one page is the sweet spot.</p></div>
+        </aside>
+      </div>
+      <footer class="footer"><span>✳ cvstudio</span><span>Made for your next chapter · Your data stays on this device</span></footer>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

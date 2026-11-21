@@ -1,0 +1,110 @@
+{
+  "theme": "modern",
+  "photo": "",
+  "photoShape": "circle",
+  "personal": {
+    "fullName": "Shivali Ganesh Naik",
+    "jobTitle": "BCA Student · Aspiring Web Developer",
+    "location": "Goa, India",
+    "email": "shivali.naik@example.com",
+    "phone": "9876543210",
+    "website": "linkedin.com/in/shivali-naik"
+  },
+  "summary": "Third-year BCA student interested in building responsive, user-friendly web applications. Enjoys turning ideas into practical digital experiences, learning new technologies and collaborating on creative projects.",
+  "education": [
+    {
+      "degree": "Bachelor of Computer Applications (BCA)",
+      "school": "Dnyanprassarak Mandal’s College & Research Centre",
+      "location": "Assagao, Goa",
+      "dates": "2024 – Present",
+      "details": "Relevant areas: Web Development, Database Management, UI/UX Design"
+    }
+  ],
+  "skills": [
+    {
+      "name": "HTML & CSS",
+      "level": "Advanced"
+    },
+    {
+      "name": "JavaScript",
+      "level": "Intermediate"
+    },
+    {
+      "name": "React",
+      "level": "Intermediate"
+    },
+    {
+      "name": "Node.js & Express",
+      "level": "Beginner"
+    },
+    {
+      "name": "MySQL",
+      "level": "Intermediate"
+    },
+    {
+      "name": "Figma",
+      "level": "Intermediate"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Smart Queue Display",
+      "tech": "HTML · CSS · JavaScript",
+      "link": "",
+      "impact": "Created a responsive queue display showing current and next token with counter information."
+    },
+    {
+      "name": "Task Manager",
+      "tech": "React · Local Storage",
+      "link": "",
+      "impact": "Built an interactive task tracker with add, edit, delete and persistent task data."
+    }
+  ],
+  "internships": [
+    {
+      "role": "Web Development Intern",
+      "company": "Sanctify Digital Marketing Agency",
+      "dates": "Nov 2026 – Present",
+      "details": "Developing responsive web interfaces and interactive JavaScript projects as part of a 60-hour internship."
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Web Development Internship",
+      "issuer": "Sanctify Digital Marketing Agency",
+      "date": "2026"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Professional"
+    },
+    {
+      "name": "Konkani",
+      "level": "Native"
+    },
+    {
+      "name": "Hindi",
+      "level": "Conversational"
+    }
+  ],
+  "order": [
+    "summary",
+    "education",
+    "skills",
+    "projects",
+    "internships",
+    "certifications",
+    "languages"
+  ],
+  "visible": {
+    "summary": true,
+    "education": true,
+    "skills": true,
+    "projects": true,
+    "internships": true,
+    "certifications": true,
+    "languages": true
+  }
+}
